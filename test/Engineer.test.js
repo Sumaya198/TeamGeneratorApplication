@@ -1,19 +1,20 @@
 const Engineer = require("../lib/Engineer");
 
-test("Can set GitHub account via constructor", () => {
-  const testValue = "GitHubUser";
-  const e = new Engineer("Foo", 1, "test@test.com", testValue);
-  expect(e.github).toBe(testValue);
-});
+const testEngineer = new Engineer("harry", 8, "harry@gmail.com")
 
-test("getRole() should return \"Engineer\"", () => {
-  const testValue = "Engineer";
-  const e = new Engineer("Foo", 1, "test@test.com", "GitHubUser");
-  expect(e.getRole()).toBe(testValue);
-});
+test('has a name', () => {
+  expect(testEngineer.name).toEqual(expect.any(String))
+  expect(testEngineer.name.length).toBeGreaterThan(2)
+})
 
-test("Can get GitHub username via getDetail()", () => {
-  const testValue = "GitHubUser";
-  const e = new Engineer("Foo", 1, "test@test.com", testValue);
-  expect(e.getDetail()).toBe(testValue);
-});
+test('Id has value', () => {
+  expect(testEngineer.id).toEqual(expect.any(Number))
+})
+
+test('has a valid email address', () => {
+  expect(testEngineer.email).toEqual(expect.stringContaining('@'))
+})
+
+test('has a valid github', () => {
+  expect(testEngineer.gitHub).toEqual(expect.any(String))
+})

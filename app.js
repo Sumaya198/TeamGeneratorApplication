@@ -6,7 +6,7 @@ const path = require("path");
 const fs = require("fs");
 
 const Output_dir = path.resolve(__dirname, "output");
-const render = require("./lib/htmlRenderer")
+const render = require("./htmlTemplate")
 
 
 let teamMembers = [];
