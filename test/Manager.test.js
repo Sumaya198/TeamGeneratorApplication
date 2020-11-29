@@ -1,32 +1,20 @@
-
 const Manager = require("../lib/Manager");
 const Employee = require("../lib/Employee");
-const { TestScheduler } = require("jest");
 
-const testManager = new Manager("harry", 4, "harry@gmail.com", "manager", 200)
+test("Can set office number via constructor argument", () => {
+  const testValue = 100;
+  const e = new Manager("Foo", 1, "test@test.com", testValue);
+  expect(e.officeNumber).toBe(testValue);
+});
 
-test('has a name', () => {
-  expect(testManager.name).toEqual(expect.any(String))
-  expect(testManager.name.length).toBeGreaterThan(2)
-})
+test('getRole() should return "Manager"', () => {
+  const testValue = "Manager";
+  const e = new Manager("Foo", 1, "test@test.com", 100);
+  expect(e.getRole()).toBe(testValue);
+});
 
-test('has a valid email address', () => {
-  expect(testManager.email).toEqual(expect.stringContaining('@'))
-})
-
-test('has a role of manager', () => {
-  expect(testManager.role).toBe('Manager')
-})
-
-test('Id has value', () => {
-  expect(testManager.id).toEqual(expect.any(Number))
-})
-
-test('Entered an office number', () => {
-  objectKey = Object.keys(testManager)
-  keyGH = objectKey[4]
-
-  expect(keyGH).toBe('office')
-
-  expect(testManager.officeNumber).toEqual(expect.any(Number))
-})
+test("Can get office number via getOffice()", () => {
+  const testValue = 100;
+  const e = new Manager("Foo", 1, "test@test.com", testValue);
+  expect(e.getOfficeNumber()).toBe(testValue);
+});
